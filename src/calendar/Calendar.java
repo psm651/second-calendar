@@ -36,13 +36,18 @@ public class Calendar {
 		 */
 
 		Scanner scanner = new Scanner(System.in);
-		System.out.println("달을 입력하세요");
-		int month = scanner.nextInt();
-		MaxDaysOfMonth mdm = new MaxDaysOfMonth();
-		System.out.println(mdm.getMaxDays(month));
+		System.out.println("반복할 횟수를 입력하세요!!");
+		int repeat = scanner.nextInt();
+		for (int i = 0; i < repeat; i++) {
+			System.out.println("달을 입력하세요");
+			int month = scanner.nextInt();
+			MaxDaysOfMonth mdm = new MaxDaysOfMonth();
+			System.out.println(mdm.getMaxDays(month));
+		}
+		System.out.println("Bye~");
 //		int[] maxDay = { 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
 //		System.out.println(month + "는 " + maxDay[month-1] + "까지 있습니다.");
-		
+
 	}
 
 }
