@@ -34,14 +34,21 @@ public class Calendar {
 		 * System.out.println("30일이 끝 입니다"); break; case 12:
 		 * System.out.println("31일이 끝 입니다"); break; } }
 		 */
-
+		String prompt = ("cal>");
 		Scanner scanner = new Scanner(System.in);
-		System.out.println("반복할 횟수를 입력하세요!!");
-		int repeat = scanner.nextInt();
-		for (int i = 0; i < repeat; i++) {
+		MaxDaysOfMonth mdm = new MaxDaysOfMonth();
+		int month = 0;
+		while (true) {
 			System.out.println("달을 입력하세요");
-			int month = scanner.nextInt();
-			MaxDaysOfMonth mdm = new MaxDaysOfMonth();
+			System.out.print(prompt);
+			month = scanner.nextInt();
+			if (month == -1) {
+				break;
+			}
+			if (month > 12) {
+				System.out.println("달은 12월까지 있습니다.");
+				continue;
+			}
 			System.out.println(mdm.getMaxDays(month));
 		}
 		System.out.println("Bye~");
