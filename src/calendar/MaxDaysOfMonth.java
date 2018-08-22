@@ -13,11 +13,10 @@ public class MaxDaysOfMonth {
 
 	public int getMaxDays(int year, int month) {
 		if (isLeepYear(year)) {
-			return LEEP_MAX_DAYS[month-1];
-		}else {
-		return MAX_DAYS[month - 1];
+			return LEEP_MAX_DAYS[month - 1];
+		} else {
+			return MAX_DAYS[month - 1];
 		}
 	}
 
-
-	}
+}
