@@ -1,14 +1,21 @@
 package calendar;
 
-import java.util.Scanner;
 
 public class Calendar {
 
-	public static void main(String[] args) {
-//일반적인 println이용하여 달력모양 출력
+	public void printCalendar(int year, int month) {
+		MaxDaysOfMonth mdm = new MaxDaysOfMonth();
 
-//      System.out.println(" 일 월 화 수 목 금 토 ");
-//		System.out.println("--------------------");
+		System.out.printf("    <<%4d년%3d월>>\n",year,month);
+		System.out.println("SUN  MON TUE WED THU FIR SAT");
+		System.out.println("---------------------------");
+		int maxDay = mdm.getMaxDays(year, month);
+		for(int i=1; i <=maxDay; i++) {
+			System.out.printf("%4d",i);
+			if(i%7 == 0)
+				System.out.println();
+		}
+		System.out.println();
 //		System.out.println(" 1  2  3  4  5  6  7");
 //		System.out.println(" 8  9 10 11 12 13 14");
 //		System.out.println("15 16 17 18 19 20 21");
@@ -34,27 +41,6 @@ public class Calendar {
 		 * System.out.println("30일이 끝 입니다"); break; case 12:
 		 * System.out.println("31일이 끝 입니다"); break; } }
 		 */
-		String prompt = ("cal>");
-		Scanner scanner = new Scanner(System.in);
-		MaxDaysOfMonth mdm = new MaxDaysOfMonth();
-		int month = 0;
-		while (true) {
-			System.out.println("달을 입력하세요");
-			System.out.print(prompt);
-			month = scanner.nextInt();
-			if (month == -1) {
-				break;
-			}
-			if (month > 12) {
-				System.out.println("달은 12월까지 있습니다.");
-				continue;
-			}
-			System.out.println(mdm.getMaxDays(month));
-		}
-		System.out.println("Bye~");
-//		int[] maxDay = { 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
-//		System.out.println(month + "는 " + maxDay[month-1] + "까지 있습니다.");
 
 	}
-
 }
