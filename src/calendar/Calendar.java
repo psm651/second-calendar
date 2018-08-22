@@ -2,18 +2,20 @@ package calendar;
 
 public class Calendar {
 
-	public void printCalendar(int year, int month, int weekday) {
+	public void printCalendar(int year, int month) {
 		MaxDaysOfMonth mdm = new MaxDaysOfMonth();
+		WeekDaysAuto wda = new WeekDaysAuto();
 
 		System.out.printf("    <<%4d년%3d월>>\n", year, month);
 		System.out.println(" SUN MON TUE WED THU FIR SAT");
 		System.out.println("---------------------------");
-		for (int j = 0; j < weekday; j++) {
-			System.out.print("    ");
+		int weekday = (wda.lastDay(year, month, 1));
+		for (int j = 0; j < weekday-1; j++) {
+			System.out.print("     ");
 		}
 		int maxDay = mdm.getMaxDays(year, month);
 		int count = 7 - weekday;
-		int otherLine = (count%7);
+		int otherLine = (count < 7)? count:0 ;
 		// 첫라인
 		for (int i = 1; i <= count; i++) {
 			System.out.printf("%4d", i);
